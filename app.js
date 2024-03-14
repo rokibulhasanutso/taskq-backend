@@ -28,8 +28,7 @@ app.use(bodyParser.json());
 const limiter = rateLimit({
     windowMs: 24 * 60 * 1000, // 1 day || 24 hours
     max: 5000, // limit each IP to 5000 requests per window Ms
-	standardHeaders: 'draft-7',
-	legacyHeaders: false
+	validate: {xForwardedForHeader: false}
 });
 app.use(limiter)
 
