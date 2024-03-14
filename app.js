@@ -27,7 +27,8 @@ app.use(bodyParser.json());
 // Request Rate Limit (3000 requests per day || 24 hours)
 const limiter = rateLimit({
     windowMs: 24 * 60 * 1000, // 1 day || 24 hours
-    max: 5000 // limit each IP to 5000 requests per window Ms
+    max: 5000, // limit each IP to 5000 requests per window Ms
+	legacyHeaders: false
 });
 app.use(limiter)
 
